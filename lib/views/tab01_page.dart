@@ -38,9 +38,9 @@ class _Tab01PageState extends State<Tab01Page> {
           // 设置内边距
           padding: EdgeInsets.all(18),
           //设置横向间距
-          crossAxisSpacing: 14,
+          crossAxisSpacing: 20,
           //设置主轴间距
-          mainAxisSpacing: 14,
+          mainAxisSpacing: 20,
           // 设置宽高比
           childAspectRatio: 2 / 1,
           // 数据渲染
