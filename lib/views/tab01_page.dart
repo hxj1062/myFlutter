@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:myfluter/views/account_info_page.dart';
 import '../model/function_bean.dart';
 import 'calculator_page.dart';
+import 'camera_page.dart';
 import 'choice_page.dart';
 import 'not_recorded_page.dart';
 
@@ -20,6 +21,7 @@ class _Tab01PageState extends State<Tab01Page> {
     Functions("未入账记录", "未入账记录", NotRecordedPage()),
     Functions("账户信息", "账户信息", AccountInfoPage()),
     Functions("练习", "单项选择", ChoicePage()),
+    Functions("拍照", "相机应用", CameraPage()),
   ];
 
   @override
@@ -34,13 +36,13 @@ class _Tab01PageState extends State<Tab01Page> {
           //设置滚动方向
           scrollDirection: Axis.vertical,
           //设置列数
-          crossAxisCount: 3,
+          crossAxisCount: 4,
           // 设置内边距
-          padding: EdgeInsets.all(18),
+          padding: EdgeInsets.all(14),
           //设置横向间距
-          crossAxisSpacing: 20,
+          crossAxisSpacing: 10,
           //设置主轴间距
-          mainAxisSpacing: 20,
+          mainAxisSpacing: 10,
           // 设置宽高比
           childAspectRatio: 2 / 1,
           // 数据渲染
