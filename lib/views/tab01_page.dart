@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myfluter/views/account_info_page.dart';
 import '../model/function_bean.dart';
+import 'bill_recorded_page.dart';
 import 'calculator_page.dart';
 import 'camera_page.dart';
 import 'choice_page.dart';
@@ -22,6 +23,7 @@ class _Tab01PageState extends State<Tab01Page> {
     Functions("账户信息", "账户信息", AccountInfoPage()),
     Functions("练习", "单项选择", ChoicePage()),
     Functions("拍照", "相机应用", CameraPage()),
+    Functions("收支账单", "合伙人账单", BillRecordedPage()),
   ];
 
   @override
