@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+
+import '../utils/common_utils.dart';
+import 'line_segment.dart';
 
 class BillRecordedPage extends StatefulWidget {
   const BillRecordedPage({Key? key}) : super(key: key);
@@ -8,6 +13,8 @@ class BillRecordedPage extends StatefulWidget {
 }
 
 class _BillRecordedPageState extends State<BillRecordedPage> {
+  int groupValue = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,8 +26,16 @@ class _BillRecordedPageState extends State<BillRecordedPage> {
           backgroundColor: const Color(0xFF3090FF),
           actions: [
             IconButton(
-
-                onPressed: () {},
+                onPressed: () {
+                  Fluttertoast.showToast(
+                      msg: "月账单的数据，当前仅做展示使用，如有疑问请及时与工作人员联系。",
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.CENTER,
+                      timeInSecForIosWeb: 2,
+                      backgroundColor: const Color(0xFF333333),
+                      textColor: const Color(0xFFFFFFFF),
+                      fontSize: 14.0);
+                },
                 icon: Image.asset(
                   "assets/images/union_icon.png",
                   height: 16.0,
@@ -31,13 +46,101 @@ class _BillRecordedPageState extends State<BillRecordedPage> {
         body: _body());
   }
 
+  // 三角
+  Widget test11() {
+    return
+      Container(
+      width: 20,
+      height: 10,
+      decoration: BoxDecoration(
+        border: Border(
+          // 四个值 top right bottom left
+          bottom: BorderSide(
+              color: Colors.blue, // 朝上; 其他的全部透明transparent或者不设置
+              width: 10,
+              style: BorderStyle.solid),
+          right: BorderSide(
+              color: Colors.transparent, // 朝左;  把颜色改为目标色就可以了；其他的透明
+              width: 10,
+              style: BorderStyle.solid),
+          left: BorderSide(
+              color: Colors.transparent, // 朝右；把颜色改为目标色就可以了；其他的透明
+              width: 10,
+              style: BorderStyle.solid),
+          top: BorderSide(
+              color: Colors.transparent, // 朝下;  把颜色改为目标色就可以了；其他的透明
+              width: 10,
+              style: BorderStyle.solid),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildLineSegmentControl(Color? backgroundColor,
+      {required Color lineColor}) {
+    Map<int, Widget> children = <int, Widget>{
+      0: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        Text("收入合计(元)", style: TextStyle(color: Colors.white, fontSize: 14.0)),
+        Text("+666.00", style: TextStyle(color: Colors.white, fontSize: 14.0))
+      ]),
+      1: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        Text("支出合计(元)", style: TextStyle(color: Colors.white, fontSize: 14.0)),
+        Text("-888.00", style: TextStyle(color: Colors.white, fontSize: 14.0))
+      ])
+    };
+    if (backgroundColor != null) {
+      return LineSegmentControl(
+        groupValue: groupValue,
+        children: children,
+        backgroundColor: backgroundColor,
+        lineColor: lineColor,
+        onValueChanged: (i) {
+          setState(() {
+            groupValue = int.parse("$i");
+          });
+        },
+      );
+    }
+    return LineSegmentControl(
+      groupValue: groupValue,
+      children: children,
+      backgroundColor: backgroundColor,
+      lineColor: lineColor,
+      onValueChanged: (i) {
+        setState(() {
+          groupValue = int.parse("$i");
+        });
+      },
+    );
+  }
+
+  Widget setRowss() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Text("收入合计(元)",
+              style: TextStyle(color: Colors.white, fontSize: 14.0)),
+          Text("+666.00", style: TextStyle(color: Colors.white, fontSize: 14.0))
+        ]),
+        Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Text("支出合计(元)",
+              style: TextStyle(color: Colors.white, fontSize: 14.0)),
+          Text("-888.00", style: TextStyle(color: Colors.white, fontSize: 14.0))
+        ])
+      ],
+    );
+  }
+
   Widget _body() {
     return Container(
       color: const Color(0xff3090FF),
       child: Column(
         children: [
           InkWell(
-            onTap: () {},
+            onTap: () {
+              showDate();
+            },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -51,26 +154,24 @@ class _BillRecordedPageState extends State<BillRecordedPage> {
             ),
           ),
           SizedBox(height: 26.0),
-          Text("账单金额(元)", style: TextStyle(color: Colors.white)),
-          Text("8888.8", style: TextStyle(color: Colors.white, fontSize: 24.0)),
+          Text("账单金额(元)",
+              style: TextStyle(color: Colors.white, fontSize: 14.0)),
           SizedBox(height: 20.0),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-                Text(
-                  "收入合计(元)",
-                  style: TextStyle(color: Colors.white),
-                ),
-                Text("+66666", style: TextStyle(color: Colors.white))
-              ]),
-              Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-                Text("支出合计(元)", style: TextStyle(color: Colors.white)),
-                Text("-888888", style: TextStyle(color: Colors.white))
-              ])
-            ],
-          ),
-          SizedBox(height: 18.0),
+          Text("8888.8", style: TextStyle(color: Colors.white, fontSize: 24.0)),
+          _buildLineSegmentControl(Color(0xFF3090FF),
+              lineColor: Color(0xFF3090FF)),
+          Container(
+              color: Colors.white,
+              padding: EdgeInsets.all(12.0),
+              child: Row(
+                children: [
+                  Text("日期"),
+                  Spacer(flex: 1),
+                  Text("费用名称"),
+                  Spacer(flex: 1),
+                  Text("金额(元)"),
+                ],
+              )),
           Expanded(
             child: Container(
               color: Colors.white,
@@ -89,15 +190,35 @@ class _BillRecordedPageState extends State<BillRecordedPage> {
     );
   }
 
+  showDate() {
+    DatePicker.showDatePicker(context,
+        showTitleActions: true,
+        minTime: DateTime(2018, 3),
+        maxTime: DateTime(2019, 6),
+        theme: DatePickerTheme(
+            headerColor: Colors.grey,
+            backgroundColor: Colors.green,
+            itemStyle: TextStyle(
+                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
+            doneStyle: TextStyle(color: Colors.white, fontSize: 16)),
+        onChanged: (date) {
+      print('change $date in time zone ' +
+          date.timeZoneOffset.inHours.toString());
+    }, onConfirm: (date) {
+      print('confirm $date');
+    }, currentTime: DateTime.now(), locale: LocaleType.zh);
+  }
+
   Widget _itemView() {
     return Container(
-        margin: EdgeInsets.all(12.0),
+        padding: EdgeInsets.all(12.0),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text("2023-02"),
-            Text("营业额"),
-            Text("20666"),
+            Spacer(flex: 1),
+            Text("费jhjdjkshnfk哈哈哈"),
+            Spacer(flex: 1),
+            Text("-866556"),
           ],
         ));
   }

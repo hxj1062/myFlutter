@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myfluter/views/login_page.dart';
+import 'package:myfluter/views/main_page.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class _SplashPageState extends State<SplashPage> {
     Future.delayed(const Duration(seconds: 1), () {
       // 1秒后跳转到登录页
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const LoginPage()));
+          context, MaterialPageRoute(builder: (context) => const MainPage()));
     });
   }
 
