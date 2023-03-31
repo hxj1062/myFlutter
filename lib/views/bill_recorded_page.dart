@@ -46,92 +46,6 @@ class _BillRecordedPageState extends State<BillRecordedPage> {
         body: _body());
   }
 
-  // 三角
-  Widget test11() {
-    return
-      Container(
-      width: 20,
-      height: 10,
-      decoration: BoxDecoration(
-        border: Border(
-          // 四个值 top right bottom left
-          bottom: BorderSide(
-              color: Colors.blue, // 朝上; 其他的全部透明transparent或者不设置
-              width: 10,
-              style: BorderStyle.solid),
-          right: BorderSide(
-              color: Colors.transparent, // 朝左;  把颜色改为目标色就可以了；其他的透明
-              width: 10,
-              style: BorderStyle.solid),
-          left: BorderSide(
-              color: Colors.transparent, // 朝右；把颜色改为目标色就可以了；其他的透明
-              width: 10,
-              style: BorderStyle.solid),
-          top: BorderSide(
-              color: Colors.transparent, // 朝下;  把颜色改为目标色就可以了；其他的透明
-              width: 10,
-              style: BorderStyle.solid),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildLineSegmentControl(Color? backgroundColor,
-      {required Color lineColor}) {
-    Map<int, Widget> children = <int, Widget>{
-      0: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Text("收入合计(元)", style: TextStyle(color: Colors.white, fontSize: 14.0)),
-        Text("+666.00", style: TextStyle(color: Colors.white, fontSize: 14.0))
-      ]),
-      1: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Text("支出合计(元)", style: TextStyle(color: Colors.white, fontSize: 14.0)),
-        Text("-888.00", style: TextStyle(color: Colors.white, fontSize: 14.0))
-      ])
-    };
-    if (backgroundColor != null) {
-      return LineSegmentControl(
-        groupValue: groupValue,
-        children: children,
-        backgroundColor: backgroundColor,
-        lineColor: lineColor,
-        onValueChanged: (i) {
-          setState(() {
-            groupValue = int.parse("$i");
-          });
-        },
-      );
-    }
-    return LineSegmentControl(
-      groupValue: groupValue,
-      children: children,
-      backgroundColor: backgroundColor,
-      lineColor: lineColor,
-      onValueChanged: (i) {
-        setState(() {
-          groupValue = int.parse("$i");
-        });
-      },
-    );
-  }
-
-  Widget setRowss() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Text("收入合计(元)",
-              style: TextStyle(color: Colors.white, fontSize: 14.0)),
-          Text("+666.00", style: TextStyle(color: Colors.white, fontSize: 14.0))
-        ]),
-        Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Text("支出合计(元)",
-              style: TextStyle(color: Colors.white, fontSize: 14.0)),
-          Text("-888.00", style: TextStyle(color: Colors.white, fontSize: 14.0))
-        ])
-      ],
-    );
-  }
-
   Widget _body() {
     return Container(
       color: const Color(0xff3090FF),
@@ -153,10 +67,10 @@ class _BillRecordedPageState extends State<BillRecordedPage> {
               ],
             ),
           ),
-          SizedBox(height: 26.0),
+          SizedBox(height: 24.0),
           Text("账单金额(元)",
               style: TextStyle(color: Colors.white, fontSize: 14.0)),
-          SizedBox(height: 20.0),
+          SizedBox(height: 4.0),
           Text("8888.8", style: TextStyle(color: Colors.white, fontSize: 24.0)),
           _buildLineSegmentControl(Color(0xFF3090FF),
               lineColor: Color(0xFF3090FF)),
@@ -187,6 +101,46 @@ class _BillRecordedPageState extends State<BillRecordedPage> {
           )
         ],
       ),
+    );
+  }
+
+  Widget _buildLineSegmentControl(Color? backgroundColor,
+      {required Color lineColor}) {
+    Map<int, Widget> children = <int, Widget>{
+      0: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        Text("收入合计(元)", style: TextStyle(color: Colors.white, fontSize: 14.0)),
+        SizedBox(height: 4.0),
+        Text("+666.00", style: TextStyle(color: Colors.white, fontSize: 14.0))
+      ]),
+      1: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        Text("支出合计(元)", style: TextStyle(color: Colors.white, fontSize: 14.0)),
+        SizedBox(height: 4.0),
+        Text("-888.00", style: TextStyle(color: Colors.white, fontSize: 14.0))
+      ])
+    };
+    if (backgroundColor != null) {
+      return LineSegmentControl(
+        groupValue: groupValue,
+        children: children,
+        backgroundColor: backgroundColor,
+        lineColor: lineColor,
+        onValueChanged: (i) {
+          setState(() {
+            groupValue = int.parse("$i");
+          });
+        },
+      );
+    }
+    return LineSegmentControl(
+      groupValue: groupValue,
+      children: children,
+      backgroundColor: backgroundColor,
+      lineColor: lineColor,
+      onValueChanged: (i) {
+        setState(() {
+          groupValue = int.parse("$i");
+        });
+      },
     );
   }
 

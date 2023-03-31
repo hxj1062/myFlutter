@@ -86,4 +86,34 @@ class _CameraPageState extends State<CameraPage> {
       ),
     );
   }
+
+  // 画一个三角形
+  Widget test11() {
+    return
+      Container(
+        width: 20,
+        height: 10,
+        decoration: BoxDecoration(
+          border: Border(
+            // 四个值 top right bottom left
+            bottom: BorderSide(
+                color: Colors.blue, // 朝上; 其他的全部透明transparent或者不设置
+                width: 10,
+                style: BorderStyle.solid),
+            right: BorderSide(
+                color: Colors.transparent, // 朝左;  把颜色改为目标色就可以了；其他的透明
+                width: 10,
+                style: BorderStyle.solid),
+            left: BorderSide(
+                color: Colors.transparent, // 朝右；把颜色改为目标色就可以了；其他的透明
+                width: 10,
+                style: BorderStyle.solid),
+            top: BorderSide(
+                color: Colors.transparent, // 朝下;  把颜色改为目标色就可以了；其他的透明
+                width: 10,
+                style: BorderStyle.solid),
+          ),
+        ),
+      );
+  }
 }

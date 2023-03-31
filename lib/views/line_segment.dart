@@ -46,10 +46,10 @@ class LineSegmentControl<T> extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _LineSegmentControlState createState() => _LineSegmentControlState();
+  LineSegmentControlState createState() => LineSegmentControlState();
 }
 
-class _LineSegmentControlState extends State<LineSegmentControl> {
+class LineSegmentControlState extends State<LineSegmentControl> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -80,7 +80,6 @@ class _LineSegmentControlState extends State<LineSegmentControl> {
                         child: TextButton(
                           child: e,
                           onPressed: () {
-                            // ddlog(e);
                             setState(() {
                               widget.groupValue =
                                   widget.children.values.toList().indexOf(e);
@@ -95,7 +94,7 @@ class _LineSegmentControlState extends State<LineSegmentControl> {
                 .toList(),
           ),
           AnimatedPositioned(
-            duration: Duration(milliseconds: 200),
+            duration: Duration(milliseconds: 100),
             top: widget.style == LineSegmentStyle.top
                 ? 0
                 : widget.height - widget.lineHeight,
@@ -104,13 +103,8 @@ class _LineSegmentControlState extends State<LineSegmentControl> {
                     (itemWidth - widget.lineWidth!) * 0.5
                 : widget.groupValue * itemWidth,
             child: Container(
-               child:
-              // Image.asset(
-              //   "assets/images/title_triangle.png",
-              //   height: 16.0,
-              //   width: 16.0,
-              // ),
-              Container(
+              alignment: Alignment.center,
+              child: Container(
                 width: 20,
                 height: 10,
                 decoration: BoxDecoration(
@@ -138,10 +132,6 @@ class _LineSegmentControlState extends State<LineSegmentControl> {
               height: 20,
               width: widget.lineWidth ?? itemWidth,
               color: widget.lineColor,
-              // decoration: BoxDecoration(
-              //   borderRadius: BorderRadius.circular(4),
-              //   color: widget.lineColor,
-              // ),
             ),
           ),
         ],
