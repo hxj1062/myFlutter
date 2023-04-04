@@ -86,7 +86,7 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
     var dataB = BankDetailItemModelB();
     dataB.tag = 2;
     dataB.leftName = "账户名称";
-    dataB.rightContent = "深圳有算科技股份有限公司";
+    dataB.rightContent = "深圳有有限公司";
     datas.add(dataB);
 
     dataB = BankDetailItemModelB();
@@ -114,7 +114,7 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
 
     var dataC = BankDetailItemModelC();
     dataC.tag = 3;
-    dataC.accountName = "深圳有算科技股份有限公司";
+    dataC.accountName = "深圳技股份有限公司";
     dataC.accountNo = "1234 5678 8286 2323";
     dataC.bankName = "建设银行";
     dataC.bankNum = " 12345";
