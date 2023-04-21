@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'line_segment.dart';
+import 'package:flutter/services.dart';
 
 class BillRecordedPage extends StatefulWidget {
   const BillRecordedPage({Key? key}) : super(key: key);
@@ -25,6 +26,9 @@ class _BillRecordedPageState extends State<BillRecordedPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarBrightness: Brightness.light,
+          ),
           // 去除阴影
           elevation: 0.0,
           centerTitle: true,
@@ -54,7 +58,7 @@ class _BillRecordedPageState extends State<BillRecordedPage> {
 
   Widget _body() {
     return Container(
-      color: const Color(0xFF53b7ff),
+      color: const Color(0xFF53B7FF),
       child: Column(
         children: [
           InkWell(
@@ -82,12 +86,13 @@ class _BillRecordedPageState extends State<BillRecordedPage> {
               lineColor: Color(0xFF53B7FF)),
           Expanded(
             child: Container(
-              color: Colors.white,
+              color: const Color(0xFFf5f5f5),
               child: ListView.separated(
                 itemBuilder: (BuildContext context, int index) {
                   var model = datas[index];
                   if (model.tag == 1) {
                     return Container(
+                      color: Colors.white,
                       child: _itemHeader(model),
                     );
                   }
@@ -111,7 +116,7 @@ class _BillRecordedPageState extends State<BillRecordedPage> {
                           thickness: model.separator,
                         )
                       : Divider(
-                          color: const Color(0xFFf5f5f5),
+                          color: const Color(0xFFffffff),
                           height: 12.0,
                           thickness: model.separator,
                         );
@@ -119,7 +124,7 @@ class _BillRecordedPageState extends State<BillRecordedPage> {
                 itemCount: datas.length,
               ),
             ),
-          )
+          ),
         ],
       ),
     );
@@ -204,8 +209,7 @@ class _BillRecordedPageState extends State<BillRecordedPage> {
 
   Widget _itemHeader(BillRecord header) {
     return Container(
-        color: Colors.white,
-        padding: EdgeInsets.fromLTRB(12.0, 18.0, 12.0, 18.0),
+        margin: EdgeInsets.fromLTRB(12.0, 18.0, 12.0, 18.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -234,7 +238,7 @@ class _BillRecordedPageState extends State<BillRecordedPage> {
 
   Widget _itemContent(BillRecord content) {
     return Container(
-        padding: EdgeInsets.fromLTRB(12.0, 16.0, 12.0, 16.0),
+        margin: EdgeInsets.fromLTRB(12.0, 16.0, 12.0, 16.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
