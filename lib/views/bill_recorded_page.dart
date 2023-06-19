@@ -1,6 +1,7 @@
 import 'dart:core';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'line_segment.dart';
 import 'package:flutter/services.dart';
@@ -63,7 +64,7 @@ class _BillRecordedPageState extends State<BillRecordedPage> {
         children: [
           InkWell(
             onTap: () {
-              showDate();
+
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -269,25 +270,25 @@ class _BillRecordedPageState extends State<BillRecordedPage> {
         ));
   }
 
-  showDate() {
-    DatePicker.showDatePicker(context,
-        showTitleActions: true,
-        minTime: DateTime(1993, 6),
-        maxTime: DateTime(2023, 6),
-        theme: DatePickerTheme(
-            headerColor: const Color(0xFFf5f5f5),
-            backgroundColor: Colors.white,
-            itemStyle: TextStyle(
-                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 18),
-            cancelStyle: TextStyle(color: Color(0xFF53B7FF), fontSize: 16),
-            doneStyle: TextStyle(color: Color(0xFF53B7FF), fontSize: 16)),
-        onChanged: (date) {
-      print('change $date in time zone ' +
-          date.timeZoneOffset.inHours.toString());
-    }, onConfirm: (date) {
-      print('confirm $date');
-    }, currentTime: DateTime.now(), locale: LocaleType.zh);
-  }
+  // showDate() {
+  //   DatePicker.showDatePicker(context,
+  //       showTitleActions: true,
+  //       minTime: DateTime(1993, 6),
+  //       maxTime: DateTime(2023, 6),
+  //       theme: DatePickerTheme(
+  //           headerColor: const Color(0xFFf5f5f5),
+  //           backgroundColor: Colors.white,
+  //           itemStyle: TextStyle(
+  //               color: Colors.black, fontWeight: FontWeight.bold, fontSize: 18),
+  //           cancelStyle: TextStyle(color: Color(0xFF53B7FF), fontSize: 16),
+  //           doneStyle: TextStyle(color: Color(0xFF53B7FF), fontSize: 16), data: null, child: null,),
+  //       onChanged: (date) {
+  //     print('change $date in time zone ' +
+  //         date.timeZoneOffset.inHours.toString());
+  //   }, onConfirm: (date) {
+  //     print('confirm $date');
+  //   }, currentTime: DateTime.now(), locale: LocaleType.zh);
+  // }
 }
 
 class BillRecord {

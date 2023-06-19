@@ -1,11 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myfluter/views/account_info_page.dart';
+import 'package:myfluter/views/wholesale_quota_page.dart';
 import '../model/function_bean.dart';
 import 'app_account.dart';
 import 'bill_recorded_page.dart';
 import 'calculator_page.dart';
 import 'camera_page.dart';
+import 'change_machine_record_page.dart';
+import 'change_machine_type_page.dart';
 import 'choice_page.dart';
 import 'not_recorded_page.dart';
 
@@ -26,6 +29,9 @@ class _Tab01PageState extends State<Tab01Page> {
     Functions("拍照", "相机应用", CameraPage()),
     Functions("收支账单", "合伙人账单", BillRecordedPage()),
     Functions("测试账号", "用以测试用", AppAccountPage()),
+    Functions("机器信息", "更改机型", ChangeMachineTypePage()),
+    Functions("变更记录", "变更记录", ChangeMachineRecordPage()),
+    Functions("批发额度", "变更记录", WholesaleQuotaPage()),
   ];
 
   @override

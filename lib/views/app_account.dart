@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:myfluter/utils/common_utils.dart';
 
 class AppAccountPage extends StatefulWidget {
   const AppAccountPage({Key? key}) : super(key: key);
@@ -9,6 +10,20 @@ class AppAccountPage extends StatefulWidget {
 }
 
 class _AppAccountPageState extends State<AppAccountPage> {
+  TextEditingController _accountController = TextEditingController();
+  var accountList = <String>[
+    "000",
+    "111",
+    "222",
+    "333",
+    "444",
+    "555",
+    "666",
+    "777",
+    "888",
+    "999"
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,38 +33,89 @@ class _AppAccountPageState extends State<AppAccountPage> {
           Padding(
             padding: EdgeInsets.only(top: 2, bottom: 2),
             child: Container(
-              height: 35,
-              width: MediaQuery.of(context).size.width - 140,
-              decoration: BoxDecoration(
-                  color: Color.fromRGBO(255, 255, 255, 1.0),
-                  borderRadius: BorderRadius.circular(20)),
-              child: InkWell(
-                borderRadius: BorderRadius.circular(20),
-                child: Row(
-                  children: <Widget>[
-                    Padding(
-                        padding: EdgeInsets.only(left: 10, right: 10),
-                        child: Icon(Icons.search, color: Colors.grey)),
-                    Text("账号搜索",
-                        style: TextStyle(color: Colors.grey, fontSize: 15)),
-                  ],
-                ),
-                onTap: () {
-                  ///这里是跳转搜索界面的关键
-                },
-              ),
-            ),
+                height: 35,
+                width: MediaQuery.of(context).size.width - 140,
+                decoration: BoxDecoration(
+                    color: Color.fromRGBO(255, 255, 255, 1.0),
+                    borderRadius: BorderRadius.circular(20)),
+                child: TextField(
+                  controller: _accountController,
+                  decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: "输入账号",
+                      prefixIcon: Icon(
+                        Icons.search,
+                        color: Colors.grey,
+                      )),
+                  onChanged: (value) {},
+                )),
           ),
           Container(
-            margin: EdgeInsets.only(left: 14),
-            child: Text(
-              "搜索",
-              style: TextStyle(fontSize: 18),
-            ),
-          ),
+              margin: EdgeInsets.only(left: 14),
+              child: InkWell(
+                child: Text(
+                  "搜索",
+                  style: TextStyle(fontSize: 18),
+                ),
+                onTap: () {
+                  setState(() {
+                    var anc = _accountController.text;
+                    for (var element in accountList) {
+                      if (element == anc) {
+                        accountList.clear();
+                        accountList.add(anc);
+                      }
+                    }
+                  });
+                },
+              )),
         ],
       )),
-      body: Container(color: Colors.white),
+      body: ListView.separated(
+        itemBuilder: (context, index) {
+          return _accountItem(accountList[index]);
+        },
+        separatorBuilder: (context, index) => Divider(
+          color: const Color(0xFFE5E5E5),
+          height: 1,
+          thickness: 1,
+        ),
+        itemCount: accountList.length,
+      ),
+    );
+  }
+
+  void initData() {
+    accountList = <String>[
+      "000",
+      "111",
+      "222",
+      "333",
+      "444",
+      "555",
+      "666",
+      "777",
+      "888",
+      "999"
+    ];
+  }
+
+  Widget _accountItem(String account) {
+    return InkWell(
+      splashColor: Colors.orange,
+      child: Container(
+        height: 50,
+        alignment: Alignment.center,
+        child: Text(
+          account,
+          style: TextStyle(fontSize: 18, color: Colors.black),
+        ),
+      ),
+      onTap: () {
+        setState(() {
+          showToast("选择帐号: " + account);
+        });
+      },
     );
   }
 }

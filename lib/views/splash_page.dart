@@ -27,7 +27,9 @@ class _SplashPageState extends State<SplashPage> {
       color: Color(0xff17afe1),
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
-      child: Image.asset("assets/images/welcome_img.jpg"),
+      child: const Image(
+        image: AssetImage("assets/images/welcome_img.jpg"),
+      ),
     );
   }
 }
