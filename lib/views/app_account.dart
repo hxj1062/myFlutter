@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myfluter/utils/common_utils.dart';
 
+import '../style/color_style.dart';
+
 class AppAccountPage extends StatefulWidget {
   const AppAccountPage({Key? key}) : super(key: key);
 
@@ -76,7 +78,7 @@ class _AppAccountPageState extends State<AppAccountPage> {
           return _accountItem(accountList[index]);
         },
         separatorBuilder: (context, index) => Divider(
-          color: const Color(0xFFE5E5E5),
+          color: ColorsStyle.color_E5E5E5,
           height: 1,
           thickness: 1,
         ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../style/colors_style.dart';
+import '../style/color_style.dart';
 
 // wl
 // 渐变色按钮
@@ -32,10 +32,10 @@ class GradientButton extends StatelessWidget {
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                ColorsStyle.c_FFFF7500,
-                ColorsStyle.c_FFFF7500,
-                ColorsStyle.c_FFFF7500,
-                ColorsStyle.c_FFFF5F27
+                ColorsStyle.color_FF7500,
+                ColorsStyle.color_FF7500,
+                ColorsStyle.color_FF7500,
+                ColorsStyle.color_FF5F27
               ],
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,
