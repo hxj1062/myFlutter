@@ -20,10 +20,12 @@ class _ChangeMachineRecordPageState extends State<ChangeMachineRecordPage> {
       body: Column(
         children: [
           _item1(),
-          Expanded(child:
-              ListView.builder(itemBuilder: (BuildContext context, int index) {
-            return _item2();
-          }))
+          Expanded(
+              child: ListView.builder(
+                  itemCount: 6,
+                  itemBuilder: (BuildContext context, int index) {
+                    return _item2();
+                  }))
         ],
       ),
     );
@@ -35,7 +37,6 @@ class _ChangeMachineRecordPageState extends State<ChangeMachineRecordPage> {
       height: double.infinity,
       alignment: Alignment(0, 0),
       child: Column(
-
         children: [
           Icon(
             Icons.hourglass_empty,
