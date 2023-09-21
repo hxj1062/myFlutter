@@ -32,10 +32,10 @@ class GradientButton extends StatelessWidget {
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                ColorsStyle.color_FF7500,
-                ColorsStyle.color_FF7500,
-                ColorsStyle.color_FF7500,
-                ColorsStyle.color_FF5F27
+                ColorsStyle.c_FF7500,
+                ColorsStyle.c_FF7500,
+                ColorsStyle.c_FF7500,
+                ColorsStyle.c_FF5F27
               ],
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,

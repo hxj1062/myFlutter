@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myfluter/views/account_info_page.dart';
+import 'package:myfluter/views/real_name_info_page.dart';
 import 'package:myfluter/views/wholesale_quota_page.dart';
 import '../model/function_bean.dart';
 import 'app_account.dart';
@@ -9,6 +10,7 @@ import 'calculator_page.dart';
 import 'camera_page.dart';
 import 'change_machine_record_page.dart';
 import 'change_machine_type_page.dart';
+import 'check_product_page.dart';
 import 'choice_page.dart';
 import 'not_recorded_page.dart';
 
@@ -32,6 +34,8 @@ class _Tab01PageState extends State<Tab01Page> {
     Functions("机器信息", "更改机型", ChangeMachineTypePage()),
     Functions("变更记录", "变更记录", ChangeMachineRecordPage()),
     Functions("批发额度", "变更记录", WholesaleQuotaPage()),
+    Functions("实名信息", "实名资料详情", RealNameInfoPage()),
+    Functions("清点商品", "清点商品详情", CheckProductCountPageApp()),
   ];
 
   @override

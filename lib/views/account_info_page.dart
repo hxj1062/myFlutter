@@ -182,7 +182,7 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
                     child: const Text(
                       "复制",
                       style: TextStyle(
-                          fontSize: 15.0, color: ColorsStyle.color_3090FF),
+                          fontSize: 15.0, color: ColorsStyle.c_3090FF),
                     ),
                   ),
                 ))
@@ -208,8 +208,7 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
                     const EdgeInsets.only(left: 12.0, top: 10.0, bottom: 4.0),
                 child: const Text(
                   "账户名称：",
-                  style: TextStyle(
-                      fontSize: 15.0, color: ColorsStyle.color_666666),
+                  style: TextStyle(fontSize: 15.0, color: ColorsStyle.c_666666),
                 ),
               ),
               Container(
@@ -218,7 +217,7 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
                   child: Text(
                     modelC.accountName,
                     style: const TextStyle(
-                        fontSize: 15.0, color: ColorsStyle.color_666666),
+                        fontSize: 15.0, color: ColorsStyle.c_666666),
                   ))
             ],
           ),
@@ -230,8 +229,8 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
                       const EdgeInsets.only(left: 12.0, top: 4.0, bottom: 4.0),
                   child: const Text(
                     "收款账号：",
-                    style: TextStyle(
-                        fontSize: 15.0, color: ColorsStyle.color_666666),
+                    style:
+                        TextStyle(fontSize: 15.0, color: ColorsStyle.c_666666),
                   )),
               Wrap(
                 crossAxisAlignment: WrapCrossAlignment.center,
@@ -240,7 +239,7 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
                     modelC.accountNo,
                     style: const TextStyle(
                       fontSize: 15.0,
-                      color: ColorsStyle.color_666666,
+                      color: ColorsStyle.c_666666,
                     ),
                   ),
                   const SizedBox(
@@ -262,7 +261,7 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
                       child: const Text(
                         "复制",
                         style: TextStyle(
-                            fontSize: 15.0, color: ColorsStyle.color_3090FF),
+                            fontSize: 15.0, color: ColorsStyle.c_3090FF),
                       ),
                     ),
                   )
@@ -278,8 +277,8 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
                       const EdgeInsets.only(left: 12.0, top: 4.0, bottom: 6.0),
                   child: const Text(
                     "所属银行：",
-                    style: TextStyle(
-                        fontSize: 15.0, color: ColorsStyle.color_666666),
+                    style:
+                        TextStyle(fontSize: 15.0, color: ColorsStyle.c_666666),
                   )),
               Container(
                 padding:
@@ -288,7 +287,7 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
                   modelC.bankName,
                   style: const TextStyle(
                     fontSize: 15.0,
-                    color: ColorsStyle.color_666666,
+                    color: ColorsStyle.c_666666,
                   ),
                 ),
               )
@@ -302,8 +301,8 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
                       const EdgeInsets.only(left: 12.0, top: 6.0, bottom: 10.0),
                   child: const Text(
                     "联行号：",
-                    style: TextStyle(
-                        fontSize: 15.0, color: ColorsStyle.color_666666),
+                    style:
+                        TextStyle(fontSize: 15.0, color: ColorsStyle.c_666666),
                   )),
               Container(
                 padding:
@@ -312,7 +311,7 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
                   modelC.bankNum,
                   style: const TextStyle(
                     fontSize: 15.0,
-                    color: ColorsStyle.color_666666,
+                    color: ColorsStyle.c_666666,
                   ),
                 ),
               ),

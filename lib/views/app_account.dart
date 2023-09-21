@@ -78,7 +78,7 @@ class _AppAccountPageState extends State<AppAccountPage> {
           return _accountItem(accountList[index]);
         },
         separatorBuilder: (context, index) => Divider(
-          color: ColorsStyle.color_E5E5E5,
+          color: ColorsStyle.c_E5E5E5,
           height: 1,
           thickness: 1,
         ),

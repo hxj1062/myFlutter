@@ -15,7 +15,7 @@ class WholesaleQuotaPage extends StatefulWidget {
 class _WholesaleQuotaPageState extends State<WholesaleQuotaPage> {
   var selected = <int>[];
   var moneyData = <double>[];
-  var moneyList = [10.00, 20.00, 30.00];
+  var moneyList = [10.00, 20.00, 30.00,40.00,50.00];
   var totalMoney = 0.00;
 
   @override
@@ -33,7 +33,7 @@ class _WholesaleQuotaPageState extends State<WholesaleQuotaPage> {
         centerTitle: true,
       ),
       body: Container(
-        color: ColorsStyle.color_F5F5F5,
+        color: ColorsStyle.c_F5F5F5,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -123,12 +123,12 @@ class _WholesaleQuotaPageState extends State<WholesaleQuotaPage> {
                           Text(
                             "${"10月25日-11月26日"}",
                             style: TextStyle(
-                                color: ColorsStyle.color_666666,
+                                color: ColorsStyle.c_666666,
                                 fontSize: 16.0),
                           ),
                           Text("${"已逾期"}",
                               style: TextStyle(
-                                  color: ColorsStyle.color_FF4951,
+                                  color: ColorsStyle.c_FF4951,
                                   fontSize: 16.0))
                         ]))
               ],
@@ -165,7 +165,7 @@ class _WholesaleQuotaPageState extends State<WholesaleQuotaPage> {
               text: new TextSpan(
                   text: "共",
                   style:
-                      TextStyle(fontSize: 14, color: ColorsStyle.color_999999),
+                      TextStyle(fontSize: 14, color: ColorsStyle.c_999999),
                   children: [
                 TextSpan(
                     text: "¥",

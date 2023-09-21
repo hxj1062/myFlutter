@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:myfluter/utils/gradient_button.dart';
 
 import '../style/color_style.dart';
-import 'common_utils.dart';
 
 Future<bool?> showFailedDialog(
     BuildContext context, String imgUrl, String content, String btnName) {
@@ -48,7 +47,7 @@ Future<bool?> showFailedDialog(
       });
 }
 
-Future<int?> showPayTypeDialog(context,String num) {
+Future<int?> showPayTypeDialog(context, String num) {
   return showModalBottomSheet<int>(
     backgroundColor: Colors.transparent,
     isScrollControlled: true,
@@ -91,7 +90,7 @@ Future<int?> showPayTypeDialog(context,String num) {
             margin: EdgeInsets.only(
                 left: 10.0, right: 10.0, top: 12.0, bottom: 4.0),
             decoration: BoxDecoration(
-                border: Border.all(width: 1.0, color: ColorsStyle.color_F5F5F5),
+                border: Border.all(width: 1.0, color: ColorsStyle.c_F5F5F5),
                 borderRadius: BorderRadius.all(Radius.circular(5))),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -133,7 +132,7 @@ Future<int?> showPayTypeDialog(context,String num) {
             margin: EdgeInsets.only(
                 left: 10.0, right: 10.0, top: 4.0, bottom: 10.0),
             decoration: BoxDecoration(
-                border: Border.all(width: 1.0, color: ColorsStyle.color_F5F5F5),
+                border: Border.all(width: 1.0, color: ColorsStyle.c_F5F5F5),
                 borderRadius: BorderRadius.all(Radius.circular(5))),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -181,8 +180,7 @@ Future<int?> showPayTypeDialog(context,String num) {
                               ),
                               Text(
                                 "可用¥${num}",
-                                style:
-                                    TextStyle(color: ColorsStyle.color_666666),
+                                style: TextStyle(color: ColorsStyle.c_666666),
                               )
                             ],
                           )
