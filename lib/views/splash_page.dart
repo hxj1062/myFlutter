@@ -17,7 +17,7 @@ class _SplashPageState extends State<SplashPage> {
     Future.delayed(const Duration(seconds: 1), () {
       // 1秒后跳转到登录页
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const MainPage()));
+          context, MaterialPageRoute(builder: (context) => const LoginPage()));
     });
   }
 

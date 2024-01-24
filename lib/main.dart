@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:myfluter/views/main_page.dart';
 import 'package:myfluter/views/splash_page.dart';
 
 void main() {
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: "/welcome",
         routes: {
-          "/welcome": (context) => SplashPage(),
+          "/welcome": (context) => MainPage(),
         });
   }
 }

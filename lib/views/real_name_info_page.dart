@@ -33,88 +33,95 @@ class _RealNameInfoPageState extends State<RealNameInfoPage> {
       children: [
         Container(
           width: double.infinity,
-          height: 60.0,
-          color: ColorsStyle.c_F4F6F8,
           padding: EdgeInsets.only(left: 15.0, top: 20.0, bottom: 20.0),
           child: Text(
             "个人信息",
             style: TextStyle(color: Colors.black, fontSize: 18.0),
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Container(
-                padding:
-                    const EdgeInsets.only(left: 15.0, top: 20.0, bottom: 19.0),
-                child: Text(
-                  "姓名",
-                  style:
-                      const TextStyle(fontSize: 15.0, color: Color(0xff333333)),
-                )),
-            Container(
-                padding:
-                    const EdgeInsets.only(right: 15.0, top: 20.0, bottom: 19.0),
-                child: Text(
-                  "张无忌",
-                  style:
-                      const TextStyle(fontSize: 15.0, color: Color(0xff333333)),
-                ))
-          ],
-        ),
-        Divider(
-          indent: 15.0,
-          endIndent: 15.0,
-          height: 1.0,
-          color: ColorsStyle.c_F4F6F8,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Container(
-                padding:
-                    const EdgeInsets.only(left: 15.0, top: 20.0, bottom: 19.0),
-                child: Text(
-                  "身份证",
-                  style:
-                      const TextStyle(fontSize: 15.0, color: Color(0xff333333)),
-                )),
-            Container(
-                padding:
-                    const EdgeInsets.only(right: 15.0, top: 20.0, bottom: 19.0),
-                child: Text(
-                  "265478794346",
-                  style:
-                      const TextStyle(fontSize: 15.0, color: Color(0xff333333)),
-                ))
-          ],
-        ),
-        Divider(
-          indent: 15.0,
-          endIndent: 15.0,
-          height: 1.0,
-          color: ColorsStyle.c_F4F6F8,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Container(
-                padding:
-                    const EdgeInsets.only(left: 15.0, top: 20.0, bottom: 19.0),
-                child: Text(
-                  "手机号",
-                  style:
-                      const TextStyle(fontSize: 15.0, color: Color(0xff333333)),
-                )),
-            Container(
-                padding:
-                    const EdgeInsets.only(right: 15.0, top: 20.0, bottom: 19.0),
-                child: Text(
-                  "1234567890",
-                  style:
-                      const TextStyle(fontSize: 15.0, color: Color(0xff333333)),
-                ))
-          ],
+        Container(
+          decoration: BoxDecoration(
+              color: Colors.white, borderRadius: BorderRadius.circular(10)),
+          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                      margin: const EdgeInsets.only(
+                          left: 14.0, top: 20.0, bottom: 19.0),
+                      child: Text(
+                        "姓名",
+                        style: const TextStyle(
+                            fontSize: 15.0, color: Color(0xff868686)),
+                      )),
+                  Container(
+                      margin: const EdgeInsets.only(
+                          right: 14.0, top: 20.0, bottom: 19.0),
+                      child: Text(
+                        "张无忌",
+                        style: const TextStyle(
+                            fontSize: 15.0, color: Color(0xff3b3b3b)),
+                      ))
+                ],
+              ),
+              Divider(
+                indent: 14.0,
+                endIndent: 14.0,
+                height: 1.0,
+                color: ColorsStyle.c_F4F6F8,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                      margin: const EdgeInsets.only(
+                          left: 14.0, top: 20.0, bottom: 19.0),
+                      child: Text(
+                        "身份证",
+                        style: const TextStyle(
+                            fontSize: 14.0, color: Color(0xff868686)),
+                      )),
+                  Container(
+                      margin: const EdgeInsets.only(
+                          right: 14.0, top: 20.0, bottom: 19.0),
+                      child: Text(
+                        "265478794346",
+                        style: const TextStyle(
+                            fontSize: 15.0, color: Color(0xff3b3b3b)),
+                      ))
+                ],
+              ),
+              Divider(
+                indent: 14.0,
+                endIndent: 14.0,
+                height: 1.0,
+                color: ColorsStyle.c_F4F6F8,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                      margin: const EdgeInsets.only(
+                          left: 14.0, top: 20.0, bottom: 19.0),
+                      child: Text(
+                        "手机号",
+                        style: const TextStyle(
+                            fontSize: 15.0, color: Color(0xff868686)),
+                      )),
+                  Container(
+                      margin: const EdgeInsets.only(
+                          right: 14.0, top: 20.0, bottom: 19.0),
+                      child: Text(
+                        "1234567890",
+                        style: const TextStyle(
+                            fontSize: 15.0, color: Color(0xff3b3b3b)),
+                      ))
+                ],
+              ),
+            ],
+          ),
         ),
         Container(
             child: Offstage(
@@ -125,7 +132,6 @@ class _RealNameInfoPageState extends State<RealNameInfoPage> {
                     Container(
                       width: double.infinity,
                       height: 60.0,
-                      color: ColorsStyle.c_F4F6F8,
                       padding:
                           EdgeInsets.only(left: 15.0, top: 20.0, bottom: 20.0),
                       child: Text(
@@ -133,53 +139,67 @@ class _RealNameInfoPageState extends State<RealNameInfoPage> {
                         style: TextStyle(color: Colors.black, fontSize: 18.0),
                       ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                            padding: const EdgeInsets.only(
-                                left: 15.0, top: 20.0, bottom: 19.0),
-                            child: Text(
-                              "企业类型",
-                              style: const TextStyle(
-                                  fontSize: 15.0, color: Color(0xff333333)),
-                            )),
-                        Container(
-                            padding: const EdgeInsets.only(
-                                right: 15.0, top: 20.0, bottom: 19.0),
-                            child: Text(
-                              "企业",
-                              style: const TextStyle(
-                                  fontSize: 15.0, color: Color(0xff333333)),
-                            ))
-                      ],
-                    ),
-                    Divider(
-                      indent: 15.0,
-                      endIndent: 15.0,
-                      height: 1.0,
-                      color: ColorsStyle.c_F4F6F8,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                            padding: const EdgeInsets.only(
-                                left: 15.0, top: 20.0, bottom: 19.0),
-                            child: Text(
-                              "企业名称",
-                              style: const TextStyle(
-                                  fontSize: 15.0, color: Color(0xff333333)),
-                            )),
-                        Container(
-                            padding: const EdgeInsets.only(
-                                right: 15.0, top: 20.0, bottom: 19.0),
-                            child: Text(
-                              "东方西游",
-                              style: const TextStyle(
-                                  fontSize: 15.0, color: Color(0xff333333)),
-                            ))
-                      ],
+                    Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10)),
+                      margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                  margin: const EdgeInsets.only(
+                                      left: 14.0, top: 20.0, bottom: 19.0),
+                                  child: Text(
+                                    "企业类型",
+                                    style: const TextStyle(
+                                        fontSize: 15.0,
+                                        color: Color(0xff868686)),
+                                  )),
+                              Container(
+                                  margin: const EdgeInsets.only(
+                                      right: 14.0, top: 20.0, bottom: 19.0),
+                                  child: Text(
+                                    "企业",
+                                    style: const TextStyle(
+                                        fontSize: 15.0,
+                                        color: Color(0xff3b3b3b)),
+                                  ))
+                            ],
+                          ),
+                          Divider(
+                            indent: 14.0,
+                            endIndent: 14.0,
+                            height: 1.0,
+                            color: ColorsStyle.c_F4F6F8,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                  margin: const EdgeInsets.only(
+                                      left: 14.0, top: 20.0, bottom: 19.0),
+                                  child: Text(
+                                    "企业名称",
+                                    style: const TextStyle(
+                                        fontSize: 15.0,
+                                        color: Color(0xff868686)),
+                                  )),
+                              Container(
+                                  margin: const EdgeInsets.only(
+                                      right: 14.0, top: 20.0, bottom: 19.0),
+                                  child: Text(
+                                    "东方西游",
+                                    style: const TextStyle(
+                                        fontSize: 15.0,
+                                        color: Color(0xff3b3b3b)),
+                                  ))
+                            ],
+                          )
+                        ],
+                      ),
                     )
                   ],
                 ))),

@@ -135,7 +135,9 @@ class _CheckProductCountPageAppState extends State<CheckProductCountPageApp> {
           margin: EdgeInsets.only(left: 20.0, right: 20.0, bottom: 18.0),
           width: double.infinity,
           child: ElevatedButton(
-            onPressed: () async {},
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
             child: Text(
               "清点完毕，返回",
               style: TextStyle(fontSize: 18.0),
@@ -204,13 +206,11 @@ class _CheckProductCountPageAppState extends State<CheckProductCountPageApp> {
                           Text(
                             "8个",
                             style: TextStyle(
-                                color: ColorsStyle.c_666666,
-                                fontSize: 16.0),
+                                color: ColorsStyle.c_666666, fontSize: 16.0),
                           ),
                           Text("16瓶/箱",
                               style: TextStyle(
-                                  color: ColorsStyle.c_FF4951,
-                                  fontSize: 16.0))
+                                  color: ColorsStyle.c_FF4951, fontSize: 16.0))
                         ])),
               ],
             )

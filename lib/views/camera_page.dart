@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -24,7 +25,9 @@ class _CameraPageState extends State<CameraPage> {
           _imgPath = File(pickedFile.path);
         });
       } else {
-        print('没有选择任何图片');
+        if (kDebugMode) {
+          print('没有选择任何图片');
+        }
       }
     } catch (e) {
       print("该手机不支持相机");
