@@ -88,10 +88,13 @@ class _LoginPageState extends State<LoginPage> {
                 height: 46.0,
                 child: (OutlinedButton(
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.blue),
+                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(22))),
+                      backgroundColor:
+                          MaterialStateProperty.all(const Color(0xCC1E90FF)),
                       foregroundColor: MaterialStateProperty.all(Colors.white),
                       overlayColor:
-                          MaterialStateProperty.all(const Color(0xffADD8E6)),
+                          MaterialStateProperty.all(const Color(0xD81E90FF)),
                     ),
                     child: const Text(
                       "登录",

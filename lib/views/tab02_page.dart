@@ -18,7 +18,7 @@ class _Tab02PageState extends State<Tab02Page> {
         title: Text("测试二"),
       ),
       body: Center(
-        child: Text("孤城遥望玉门关", style: TextStyle(fontSize: 18)),
+        child: Text("示例二", style: TextStyle(fontSize: 18)),
       ),
     );
   }

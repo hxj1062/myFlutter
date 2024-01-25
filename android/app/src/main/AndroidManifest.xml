@@ -3,7 +3,8 @@
 
     <application
         android:name="${applicationName}"
-        android:icon="@mipmap/logo_icon"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher"
         android:label="Flutter示例">
         <activity
             android:name=".MainActivity"

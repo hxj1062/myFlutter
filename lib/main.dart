@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: "/welcome",
         routes: {
-          "/welcome": (context) => MainPage(),
+          "/welcome": (context) => SplashPage(),
         });
   }
 }
