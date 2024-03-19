@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myfluter/views/account_info_page.dart';
+import 'package:myfluter/views/privacy_machine_page.dart';
 import 'package:myfluter/views/real_name_info_page.dart';
 import 'package:myfluter/views/space_fit_page.dart';
 import 'package:myfluter/views/wholesale_quota_page.dart';
@@ -38,6 +39,7 @@ class _Tab01PageState extends State<Tab01Page> {
     Functions("实名信息", "实名资料详情", RealNameInfoPage()),
     Functions("清点商品", "清点商品详情", CheckProductCountPageApp()),
     Functions("空间适配", "空间适配组件FittedBox练习", SpaceFitPage()),
+    Functions("机密集器", "机密集器列表", PrivacyMachinePageApp()),
   ];
 
   @override
