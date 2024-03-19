@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../style/color_style.dart';
+import '../utils/common_utils.dart';
 
 class PrivacyMachinePageApp extends StatefulWidget {
   const PrivacyMachinePageApp({Key? key}) : super(key: key);
@@ -12,15 +13,17 @@ class PrivacyMachinePageApp extends StatefulWidget {
 
 class _PrivacyMachinePageAppState extends State<PrivacyMachinePageApp> {
   TextEditingController _editController = TextEditingController();
-  List<Product> productList = [
-    Product("46456546", "湖南省人民武装学校食堂2"),
-    Product("48594894", "华南物流园BPP汇泽充电站4号门口"),
-    Product("79845549", "华南物流园BP汇泽充电电站4号门口"),
+
+  List<MachineBean> list01 = [
+    MachineBean("011111", "湖南省人民武装学校食堂2"),
+    MachineBean("533333", "中华人名共和国昆明市呈贡区呈祥街惠景园春都·惠景园-A区"),
+    MachineBean("822222", "深圳南山深圳湾公园"),
   ];
-  List<Product> productList2 = [
-    Product("46456546", "湖南省人民武装学校食堂2"),
-    Product("48594894", "华南物流园BP汇泽充电站4号门口"),
-    Product("79845549", "华南物流园BP汇泽充电站4号门口"),
+
+  List<MachineBean> list02 = [
+    MachineBean("011111", "湖南省人民武装学校食堂2"),
+    MachineBean("533333", "中华人名共和国昆明市呈贡区呈祥街惠景园春都"),
+    MachineBean("822222", "深圳南山深圳湾公园"),
   ];
 
   @override
@@ -69,16 +72,16 @@ class _PrivacyMachinePageAppState extends State<PrivacyMachinePageApp> {
                   onChanged: (value) {
                     setState(() {
                       if (value.isEmpty) {
-                        productList = productList2;
+                        list01 = list02;
                       } else {
-                        var list = <Product>[];
-                        for (var bean in productList2) {
+                        var list = <MachineBean>[];
+                        for (var bean in list02) {
                           if (bean.machineId!.contains(value) ||
                               value.contains(bean.machineId.toString())) {
                             list.add(bean);
                           }
                         }
-                        productList = list;
+                        list01 = list;
                       }
                     });
                   },
@@ -91,16 +94,16 @@ class _PrivacyMachinePageAppState extends State<PrivacyMachinePageApp> {
         ),
         Expanded(
             child: ListView.builder(
-          itemCount: productList.length,
+          itemCount: list01.length,
           itemBuilder: (BuildContext context, int index) {
-            return _listItem(productList[index]);
+            return _listItem(list01[index]);
           },
         )),
       ],
     );
   }
 
-  Widget _listItem(Product data) {
+  Widget _listItem(MachineBean data) {
     return GestureDetector(
       child: Container(
         margin: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 2.0),
@@ -113,6 +116,7 @@ class _PrivacyMachinePageAppState extends State<PrivacyMachinePageApp> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
+                    width: 280,
                     margin: EdgeInsets.only(
                         left: 10.0, bottom: 12.0, top: 10.0, right: 18.0),
                     child: Column(
@@ -121,18 +125,14 @@ class _PrivacyMachinePageAppState extends State<PrivacyMachinePageApp> {
                           Text(
                             "机器号:${data.machineId}",
                             style: TextStyle(
-                                color: ColorsStyle.c_666666, fontSize: 16.0),
+                                color: ColorsStyle.c_3A3A3A, fontSize: 16.0),
                           ),
                           Text("${data.machineAddress}",
                               style: TextStyle(
-                                  color: ColorsStyle.c_FF4951, fontSize: 16.0))
+                                  color: ColorsStyle.c_737373, fontSize: 14.0))
                         ])),
                 Container(
-                  margin: EdgeInsets.only(
-                    left: 10.0,
-                    bottom: 10.0,
-                    top: 2.0,
-                  ),
+                  margin: EdgeInsets.only(bottom: 10.0, top: 2.0, right: 4.0),
                   child: Image(
                     image: AssetImage("assets/images/arrow_right.png"),
                     width: 12,
@@ -145,15 +145,17 @@ class _PrivacyMachinePageAppState extends State<PrivacyMachinePageApp> {
         ),
       ),
       onTap: () {
-        setState(() {});
+        setState(() {
+          showToast("选中了${data.machineId}");
+        });
       },
     );
   }
 }
 
-class Product {
+class MachineBean {
   late String machineId;
   late String machineAddress;
 
-  Product(this.machineId, this.machineAddress);
+  MachineBean(this.machineId, this.machineAddress);
 }
