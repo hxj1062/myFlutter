@@ -171,7 +171,7 @@ class _ChangeMachineTypePageState extends State<ChangeMachineTypePage> {
                                   color: Colors.black, fontSize: 16.0),
                             ),
                             Image(
-                              image: AssetImage("asset/images/arrow_right.png"),
+                              image: AssetImage("assets/images/arrow_right.png"),
                               width: 16,
                               height: 16,
                             )

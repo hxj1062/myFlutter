@@ -36,7 +36,7 @@ class _PrivacyMachinePageAppState extends State<PrivacyMachinePageApp> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
-        title: Text("集器列表"),
+        title: Text("机器列表"),
         centerTitle: true,
       ),
       body: _body(),

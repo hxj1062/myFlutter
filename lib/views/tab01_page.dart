@@ -4,6 +4,9 @@ import 'package:myfluter/views/account_info_page.dart';
 import 'package:myfluter/views/privacy_machine_page.dart';
 import 'package:myfluter/views/real_name_info_page.dart';
 import 'package:myfluter/views/space_fit_page.dart';
+import 'package:myfluter/views/tetsufsd.dart';
+import 'package:myfluter/views/upload_image_page.dart';
+import 'package:myfluter/views/upload_order.dart';
 import 'package:myfluter/views/wholesale_quota_page.dart';
 import '../model/function_bean.dart';
 import 'app_account.dart';
@@ -40,6 +43,9 @@ class _Tab01PageState extends State<Tab01Page> {
     Functions("清点商品", "清点商品详情", CheckProductCountPageApp()),
     Functions("空间适配", "空间适配组件FittedBox练习", SpaceFitPage()),
     Functions("机密集器", "机密集器列表", PrivacyMachinePageApp()),
+    Functions("图片上传", "上传图片", ProductImg( )),
+    Functions("上传验收单", "验收单", UploadOrderApp( )),
+    Functions("加减", "ssd", NumChangeWidget(onValueChanged: (int value) {  }, )),
   ];
 
   @override

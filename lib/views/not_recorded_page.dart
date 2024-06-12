@@ -73,7 +73,7 @@ class _NotRecordedPageState extends State<NotRecordedPage> {
             child: Container(
               color: Colors.white,
               child: ListView.builder(
-                  itemCount: 10,
+                  itemCount: 6,
                   itemExtent: 65.0,
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
@@ -89,7 +89,7 @@ class _NotRecordedPageState extends State<NotRecordedPage> {
 
   Widget _itemView() {
     return Container(
-        margin: EdgeInsets.all(12.0),
+        margin: EdgeInsets.all(9.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
