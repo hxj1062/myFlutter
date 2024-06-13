@@ -87,7 +87,7 @@ class _CheckOrderAppState extends State<CheckOrderApp> {
               text: TextSpan(children: [
             TextSpan(
                 text: "商品信息",
-                style: TextStyle(color: Colors.black, fontSize: 20.0)),
+                style: TextStyle(color: Colors.black, fontSize: 18.0)),
             TextSpan(
                 text: "   注:已确认收货部分商品不再支持退款",
                 style: TextStyle(color: ColorsStyle.c_666666, fontSize: 14.0))

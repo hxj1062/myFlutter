@@ -10,7 +10,9 @@ import 'package:photo_view/photo_view.dart';
 
 import '../style/color_style.dart';
 import '../utils/common_utils.dart';
+
 typedef CommonACallback = void Function(dynamic reslut);
+
 class UploadOrderApp extends StatefulWidget {
   const UploadOrderApp({Key? key}) : super(key: key);
 
@@ -49,7 +51,7 @@ class _UploadOrderAppState extends State<UploadOrderApp> {
             ),
             item03(),
             SizedBox(
-              height: 10,
+              height: 12,
               width: double.infinity,
             ),
           ],
@@ -94,7 +96,7 @@ class _UploadOrderAppState extends State<UploadOrderApp> {
               text: TextSpan(children: [
             TextSpan(
                 text: "商品信息",
-                style: TextStyle(color: Colors.black, fontSize: 20.0)),
+                style: TextStyle(color: Colors.black, fontSize: 18.0)),
             TextSpan(
                 text: "   注:已确认收货部分商品不再支持退款",
                 style: TextStyle(color: ColorsStyle.c_666666, fontSize: 14.0))
@@ -401,6 +403,7 @@ class _UpImgBtnState extends State<UpImgBtn> {
     if (widget.imgList!.length < 6) {
       showModalBottomSheet(
           context: context,
+          isDismissible: true,
           backgroundColor: Colors.transparent,
           builder: (BuildContext context) {
             return Container(
