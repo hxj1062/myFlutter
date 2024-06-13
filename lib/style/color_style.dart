@@ -17,10 +17,12 @@ class ColorsStyle {
   static const Color c_FFBFC2CB = Color(0xFFBFC2CB);
   static const Color c_3090FF = Color(0XFF3090FF);
   static const Color c_666666 = Color(0XFF666666);
+  static const Color c_333333 = Color(0XFF333333);
   static const Color c_3A3A3A = Color(0XFF3A3A3A);
   static const Color c_FF4951 = Color(0XFFFF4951);
   static const Color c_737373 = Color(0XFF737373);
   static const Color c_DEDEDE = Color(0XFFDEDEDE);
+
 
   static MaterialColor materialColor(Color color) {
     List strengths = <double>[.05];

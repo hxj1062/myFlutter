@@ -4,8 +4,8 @@ import 'package:myfluter/views/account_info_page.dart';
 import 'package:myfluter/views/privacy_machine_page.dart';
 import 'package:myfluter/views/real_name_info_page.dart';
 import 'package:myfluter/views/space_fit_page.dart';
-import 'package:myfluter/views/tetsufsd.dart';
-import 'package:myfluter/views/upload_image_page.dart';
+import 'package:myfluter/views/num_change.dart';
+import 'package:myfluter/views/snap_product_img.dart';
 import 'package:myfluter/views/upload_order.dart';
 import 'package:myfluter/views/wholesale_quota_page.dart';
 import '../model/function_bean.dart';
@@ -15,6 +15,7 @@ import 'calculator_page.dart';
 import 'camera_page.dart';
 import 'change_machine_record_page.dart';
 import 'change_machine_type_page.dart';
+import 'check_order.dart';
 import 'check_product_page.dart';
 import 'choice_page.dart';
 import 'not_recorded_page.dart';
@@ -43,9 +44,8 @@ class _Tab01PageState extends State<Tab01Page> {
     Functions("清点商品", "清点商品详情", CheckProductCountPageApp()),
     Functions("空间适配", "空间适配组件FittedBox练习", SpaceFitPage()),
     Functions("机密集器", "机密集器列表", PrivacyMachinePageApp()),
-    Functions("图片上传", "上传图片", ProductImg( )),
-    Functions("上传验收单", "验收单", UploadOrderApp( )),
-    Functions("加减", "ssd", NumChangeWidget(onValueChanged: (int value) {  }, )),
+    Functions("上传验收单", "验收单", UploadOrderApp()),
+    Functions("查看验收单", "验收单", CheckOrderApp()),
   ];
 
   @override
