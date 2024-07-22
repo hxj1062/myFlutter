@@ -51,7 +51,7 @@ android {
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
-        setProperty("archivesBaseName", applicationId + "-v" + versionCode + "(" + versionName + ")")
+        setProperty("archivesBaseName", "myfluter" + versionName + "_" + versionCode + "_${new Date().format("yyyyMMdd_HHmmss")}")
     }
 
     buildTypes {

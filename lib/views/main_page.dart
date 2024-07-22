@@ -25,10 +25,10 @@ class _MainPageState extends State<MainPage> {
       body: _pageNo[selectPage],
       bottomNavigationBar: ConvexAppBar(
         items: const [
-          TabItem(icon: Icons.person, title: "Tab1"),
+          TabItem(icon: Icons.home, title: "Tab1"),
           TabItem(icon: Icons.favorite, title: "Tab2"),
-          TabItem(icon: Icons.phone_android, title: "Tab3"),
-          TabItem(icon: Icons.photo_camera, title: "Tab4")
+          TabItem(icon: Icons.settings, title: "Tab3"),
+          TabItem(icon: Icons.person, title: "Tab4")
         ],
         color: Colors.grey,
         backgroundColor: Colors.white,

@@ -80,10 +80,42 @@ class _UploadOrderAppState extends State<UploadOrderApp> {
 
   void returnAction() {
     showToast("返回");
+    Navigator.pop(context);
   }
 
   void submitAction() {
-    showToast("提交");
+    showCupertinoDialog();
+  }
+
+
+  void showCupertinoDialog() {
+    var dialog = CupertinoAlertDialog(
+
+      content: Text(
+        "请确认实际收货数量正确并提交",
+        style: TextStyle(fontSize: 16),
+      ),
+      actions: <Widget>[
+        CupertinoButton(
+          borderRadius: BorderRadius.all(Radius.circular(1.0)),
+          child: Text("取消",
+              style: TextStyle(fontSize: 18, color: ColorsStyle.c_3090FF)),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        CupertinoButton(
+          borderRadius: BorderRadius.all(Radius.circular(1.0)),
+          child: Text("确定",
+              style: TextStyle(fontSize: 18, color: ColorsStyle.c_3090FF)),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ],
+    );
+
+    showDialog(context: context, builder: (_) => dialog);
   }
 
   Widget item01() {
@@ -468,5 +500,46 @@ class _UpImgBtnState extends State<UpImgBtn> {
     } else {
       showToast("最多上传6张");
     }
+  }
+}
+
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return CupertinoPageScaffold(
+      child: Center(
+        child: CupertinoButton(
+          child: Text('Show Dialog'),
+          onPressed: () {
+            showCupertinoDialog<void>(
+              context: context,
+              builder: (BuildContext context) {
+                return ClipRRect(
+                  borderRadius: BorderRadius.circular(20.0), // 设置圆角
+                  child: CupertinoAlertDialog(
+                    title: Text('Alert Dialog'),
+                    content: Text('This is an example alert dialog.'),
+                    actions: <Widget>[
+                      CupertinoDialogAction(
+                        child: Text('Cancel'),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                      CupertinoDialogAction(
+                        child: Text('OK'),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+          },
+        ),
+      ),
+    );
   }
 }

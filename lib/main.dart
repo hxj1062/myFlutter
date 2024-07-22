@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
+        debugShowCheckedModeBanner: false, // 去掉debug图标
         initialRoute: "/welcome",
         routes: {
           "/welcome": (context) => MainPage(),

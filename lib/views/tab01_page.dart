@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myfluter/views/account_info_page.dart';
+import 'package:myfluter/views/payment_page.dart';
+import 'package:myfluter/views/point_details.dart';
 import 'package:myfluter/views/privacy_machine_page.dart';
 import 'package:myfluter/views/real_name_info_page.dart';
 import 'package:myfluter/views/space_fit_page.dart';
@@ -18,6 +20,7 @@ import 'change_machine_type_page.dart';
 import 'check_order.dart';
 import 'check_product_page.dart';
 import 'choice_page.dart';
+import 'logistics_details.dart';
 import 'not_recorded_page.dart';
 
 class Tab01Page extends StatefulWidget {
@@ -29,7 +32,7 @@ class Tab01Page extends StatefulWidget {
 
 class _Tab01PageState extends State<Tab01Page> {
   // 添加练习模块
-  static List<Functions> chainList = [
+  static List<Functions> chainList01 = [
     Functions("计算器", "简单布局练习", CalculatorPage()),
     Functions("未入账记录", "未入账记录", NotRecordedPage()),
     Functions("账户信息", "账户信息", AccountInfoPage()),
@@ -46,6 +49,9 @@ class _Tab01PageState extends State<Tab01Page> {
     Functions("机密集器", "机密集器列表", PrivacyMachinePageApp()),
     Functions("上传验收单", "验收单", UploadOrderApp()),
     Functions("查看验收单", "验收单", CheckOrderApp()),
+    Functions("物流单", "物流单", LogisDetailPage()),
+    Functions("点位详情", "点位详情", PointDetailsPage()),
+    Functions("付款日", "付款日", PaymentPage()),
   ];
 
   @override
@@ -54,7 +60,7 @@ class _Tab01PageState extends State<Tab01Page> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           centerTitle: true,
-          title: const Text("测试一"),
+          title: const Text("页面一"),
         ),
         body: GridView.count(
           //设置滚动方向
@@ -75,7 +81,7 @@ class _Tab01PageState extends State<Tab01Page> {
   }
 
   static List<Widget> getGridList(BuildContext context) {
-    return chainList.map((item) => getItemContainer(item, context)).toList();
+    return chainList01.map((item) => getItemContainer(item, context)).toList();
   }
 
   static Widget getItemContainer(Functions item, BuildContext context) {
@@ -102,7 +108,7 @@ class _Tab01PageState extends State<Tab01Page> {
     );
   }
 
-  static Widget getDialog(Functions func, BuildContext context1) {
+  static Widget getDialog(Functions func, BuildContext context) {
     return AlertDialog(
         title: const Text(
           "功能描述",
@@ -118,7 +124,7 @@ class _Tab01PageState extends State<Tab01Page> {
                   backgroundColor:
                       MaterialStateProperty.all(const Color(0xff1E90FF))),
               onPressed: () {
-                Navigator.of(context1).pop();
+                Navigator.of(context).pop();
               },
               child: const Text(
                 "取消",
@@ -129,8 +135,8 @@ class _Tab01PageState extends State<Tab01Page> {
                   backgroundColor:
                       MaterialStateProperty.all(const Color(0xff1E90FF))),
               onPressed: () {
-                Navigator.of(context1).pop();
-                Navigator.push(context1,
+                Navigator.of(context).pop();
+                Navigator.push(context,
                     MaterialPageRoute(builder: (context) => func.widgetPage));
               },
               child: const Text(

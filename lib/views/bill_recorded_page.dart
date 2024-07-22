@@ -63,9 +63,7 @@ class _BillRecordedPageState extends State<BillRecordedPage> {
       child: Column(
         children: [
           InkWell(
-            onTap: () {
-
-            },
+            onTap: () {},
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -134,37 +132,34 @@ class _BillRecordedPageState extends State<BillRecordedPage> {
   initData() {
     var dataA = BillRecord();
     dataA.tag = 1;
-    dataA.chargeDate = "日期";
-    dataA.chargeName = "费用名称";
-    dataA.chargeAmount = "金额(元)";
+    dataA.chargeDate = "商品名称";
+    dataA.chargeName = "订单创建时间";
+    dataA.orderTime = "付款时间";
+    dataA.chargeAmount = "零售价";
     datas.add(dataA);
 
     var dataB = BillRecord();
     dataB.tag = 2;
-    dataB.chargeDate = "2023-03";
-    dataB.chargeName = "营业额";
-    dataB.chargeAmount = "88.88";
+    dataB.chargeDate = "可口可乐330ml";
+    dataB.chargeName = "2024.07.05 17:59:41";
+    dataB.orderTime = "2024.07.05 17:59:41";
+    dataB.chargeAmount = "2.00";
     datas.add(dataB);
 
     dataB = BillRecord();
     dataB.tag = 2;
-    dataB.chargeDate = "2023-03";
-    dataB.chargeName = "营业分成";
-    dataB.chargeAmount = "66.66";
+    dataB.chargeDate = "华洋白桃樱花味果汁汽水330ml";
+    dataB.chargeName = "2024.07.05 17:59:41";
+    dataB.orderTime = "2024.07.05 17:59:41";
+    dataB.chargeAmount = "6.66";
     datas.add(dataB);
 
     dataB = BillRecord();
     dataB.tag = 2;
-    dataB.chargeDate = "2023-03";
-    dataB.chargeName = "公司营销活动补偿";
-    dataB.chargeAmount = "66.888";
-    datas.add(dataB);
-
-    dataB = BillRecord();
-    dataB.tag = 2;
-    dataB.chargeDate = "2023-03";
-    dataB.chargeName = "友咖提成";
-    dataB.chargeAmount = "88.6886";
+    dataB.chargeDate = "农夫山泉饮用天然水550ml";
+    dataB.chargeName = "2024.07.05 17:59:41";
+    dataB.orderTime = "2024.07.05 17:59:41";
+    dataB.chargeAmount = "6.86";
     datas.add(dataB);
   }
 
@@ -210,24 +205,35 @@ class _BillRecordedPageState extends State<BillRecordedPage> {
 
   Widget _itemHeader(BillRecord header) {
     return Container(
-        margin: EdgeInsets.fromLTRB(12.0, 18.0, 12.0, 18.0),
+        margin: EdgeInsets.fromLTRB(10.0, 14.0, 10.0, 14.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              width: 66,
-              child: Text(header.chargeDate, style: TextStyle(fontSize: 14.0)),
+              width: 90,
+              child: Text(header.chargeDate,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 14.0)),
             ),
             Container(
-              width: 120,
+              width: 90,
               child: Text(
+                textAlign: TextAlign.center,
                 header.chargeName,
                 style: TextStyle(fontSize: 14.0),
               ),
             ),
             Container(
+              width: 90,
+              child: Text(
+                textAlign: TextAlign.center,
+                header.orderTime,
+                style: TextStyle(fontSize: 14.0),
+              ),
+            ),
+            Container(
               alignment: Alignment.centerRight,
-              width: 80,
+              width: 60,
               child: Text(
                 header.chargeAmount,
                 style: TextStyle(fontSize: 14.0),
@@ -239,29 +245,40 @@ class _BillRecordedPageState extends State<BillRecordedPage> {
 
   Widget _itemContent(BillRecord content) {
     return Container(
-        margin: EdgeInsets.fromLTRB(12.0, 16.0, 12.0, 16.0),
+        margin: EdgeInsets.fromLTRB(10.0, 14.0, 14.0, 16.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              width: 66,
+              width: 90,
               child: Text(
+                textAlign: TextAlign.center,
                 content.chargeDate,
                 style: TextStyle(fontSize: 14.0),
               ),
             ),
             Container(
-              width: 120,
+              width: 90,
               child: Text(
+                textAlign: TextAlign.center,
                 content.chargeName,
+                style: TextStyle(fontSize: 14.0),
+              ),
+            ),
+            Container(
+              width: 90,
+              child: Text(
+                textAlign: TextAlign.center,
+                content.orderTime,
                 style: TextStyle(fontSize: 14.0),
               ),
             ),
             Container(
               alignment: Alignment.centerRight,
               padding: EdgeInsets.only(left: 10),
-              width: 80,
+              width: 60,
               child: Text(
+                textAlign: TextAlign.center,
                 content.chargeAmount,
                 style: TextStyle(fontSize: 14.0),
               ),
@@ -270,25 +287,25 @@ class _BillRecordedPageState extends State<BillRecordedPage> {
         ));
   }
 
-  // showDate() {
-  //   DatePicker.showDatePicker(context,
-  //       showTitleActions: true,
-  //       minTime: DateTime(1993, 6),
-  //       maxTime: DateTime(2023, 6),
-  //       theme: DatePickerTheme(
-  //           headerColor: const Color(0xFFf5f5f5),
-  //           backgroundColor: Colors.white,
-  //           itemStyle: TextStyle(
-  //               color: Colors.black, fontWeight: FontWeight.bold, fontSize: 18),
-  //           cancelStyle: TextStyle(color: Color(0xFF53B7FF), fontSize: 16),
-  //           doneStyle: TextStyle(color: Color(0xFF53B7FF), fontSize: 16), data: null, child: null,),
-  //       onChanged: (date) {
-  //     print('change $date in time zone ' +
-  //         date.timeZoneOffset.inHours.toString());
-  //   }, onConfirm: (date) {
-  //     print('confirm $date');
-  //   }, currentTime: DateTime.now(), locale: LocaleType.zh);
-  // }
+// showDate() {
+//   DatePicker.showDatePicker(context,
+//       showTitleActions: true,
+//       minTime: DateTime(1993, 6),
+//       maxTime: DateTime(2023, 6),
+//       theme: DatePickerTheme(
+//           headerColor: const Color(0xFFf5f5f5),
+//           backgroundColor: Colors.white,
+//           itemStyle: TextStyle(
+//               color: Colors.black, fontWeight: FontWeight.bold, fontSize: 18),
+//           cancelStyle: TextStyle(color: Color(0xFF53B7FF), fontSize: 16),
+//           doneStyle: TextStyle(color: Color(0xFF53B7FF), fontSize: 16), data: null, child: null,),
+//       onChanged: (date) {
+//     print('change $date in time zone ' +
+//         date.timeZoneOffset.inHours.toString());
+//   }, onConfirm: (date) {
+//     print('confirm $date');
+//   }, currentTime: DateTime.now(), locale: LocaleType.zh);
+// }
 }
 
 class BillRecord {
@@ -296,5 +313,6 @@ class BillRecord {
   double separator = 1.0;
   late String chargeDate;
   late String chargeName;
+  late String orderTime;
   late String chargeAmount;
 }

@@ -9,20 +9,21 @@ class ColorsStyle {
   //背景色
   static const Color c_F5F5F5 = Color(0xFFF5F5F5);
   static const Color c_FF7500 = Color(0xFFFF7500);
+  static const Color c_FF6C00 = Color(0xFFFF6C00);
   static const Color c_FF5F27 = Color(0xFFFF5F27);
   static const Color c_999999 = Color(0xFF999999);
   static const Color c_F4F6F8 = Color(0xFFF4F6F8);
   static const Color c_FFFFFF = Color(0xFFFFFFFF);
-  static const Color c_E5E5E5 = Color(0xFFE5E5E5);
-  static const Color c_FFBFC2CB = Color(0xFFBFC2CB);
   static const Color c_3090FF = Color(0XFF3090FF);
   static const Color c_666666 = Color(0XFF666666);
+  static const Color c_979797 = Color(0XFF979797);
   static const Color c_333333 = Color(0XFF333333);
   static const Color c_3A3A3A = Color(0XFF3A3A3A);
   static const Color c_FF4951 = Color(0XFFFF4951);
   static const Color c_737373 = Color(0XFF737373);
   static const Color c_DEDEDE = Color(0XFFDEDEDE);
-
+  static const Color c_E5E5E5 = Color(0xFFE5E5E5);
+  static const Color c_FFBFC2CB = Color(0xFFBFC2CB);
 
   static MaterialColor materialColor(Color color) {
     List strengths = <double>[.05];
