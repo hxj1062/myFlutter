@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:myfluter/style/color_style.dart';
 import 'package:myfluter/utils/common_utils.dart';
+import 'package:myfluter/views/point_details.dart';
 import 'package:myfluter/views/privacy_machine_page.dart';
 import 'line_segment.dart';
 import 'package:flutter/services.dart';
@@ -239,11 +240,7 @@ class _PaymentPageState extends State<PaymentPage>
           ],
         ),
       ),
-      onTap: () {
-        setState(() {
-          showToast("选中了${data.machineId}");
-        });
-      },
+      onTap: () {},
     );
   }
 
@@ -266,11 +263,11 @@ class _PaymentPageState extends State<PaymentPage>
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "客户编号:${data.machineId}",
+                            "机器编号:${data.machineId}",
                             style: TextStyle(
                                 color: ColorsStyle.c_3A3A3A, fontSize: 13.0),
                           ),
-                          Text("客户名称:${data.machineAddress}",
+                          Text("点位名称:${data.machineAddress}",
                               style: TextStyle(
                                   color: ColorsStyle.c_3A3A3A, fontSize: 13.0))
                         ])),
@@ -297,7 +294,8 @@ class _PaymentPageState extends State<PaymentPage>
       ),
       onTap: () {
         setState(() {
-          showToast("选中了${data.machineId}");
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => PointDetailsPage()));
         });
       },
     );
