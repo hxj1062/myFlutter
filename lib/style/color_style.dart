@@ -21,6 +21,7 @@ class ColorsStyle {
   static const Color c_3A3A3A = Color(0XFF3A3A3A);
   static const Color c_FF4951 = Color(0XFFFF4951);
   static const Color c_737373 = Color(0XFF737373);
+  static const Color c_FFF7EE = Color(0XFFFFF7EE);
   static const Color c_DEDEDE = Color(0XFFDEDEDE);
   static const Color c_E5E5E5 = Color(0xFFE5E5E5);
   static const Color c_FFBFC2CB = Color(0xFFBFC2CB);

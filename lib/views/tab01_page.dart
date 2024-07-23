@@ -20,6 +20,7 @@ import 'change_machine_type_page.dart';
 import 'check_order.dart';
 import 'check_product_page.dart';
 import 'choice_page.dart';
+import 'demo_01.dart';
 import 'logistics_details.dart';
 import 'not_recorded_page.dart';
 
