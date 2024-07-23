@@ -20,22 +20,25 @@ class PaymentPage extends StatefulWidget {
 
 class _PaymentPageState extends State<PaymentPage>
     with TickerProviderStateMixin {
-  List<MachineBean> list01 = [
-    MachineBean("NZB125816", "JM互联网与产品研发中心2.0"),
-    MachineBean("NZB126666", "深圳南山深圳湾公园"),
+  late TabController _tabHeadController;
+  late TabController _tabBodyController;
+  List headTabs = ["已付款", "订单"];
+  List bodyTabs = ["客户", "点位"];
+
+  List<TestBean> list01 = [
+    TestBean("NZB125816", "JM互联网与产品研发中心2.0"),
+    TestBean("NZB126666", "深圳南山深圳湾公园"),
   ];
-  List<MachineBean> list02 = [
-    MachineBean("NZB666888", "田间创制"),
-    MachineBean("NZB100861", "测试仪二"),
+  List<TestBean> list02 = [
+    TestBean("NZB666888", "田间创制"),
+    TestBean("NZB100861", "测试仪二"),
   ];
-  late TabController _tabController01;
-  late TabController _tabController02;
 
   @override
   void initState() {
     super.initState();
-    _tabController01 = TabController(length: 2, vsync: this);
-    _tabController02 = TabController(length: 2, vsync: this);
+    _tabHeadController = TabController(length: 2, vsync: this);
+    _tabBodyController = TabController(length: 2, vsync: this);
   }
 
   @override
@@ -49,28 +52,30 @@ class _PaymentPageState extends State<PaymentPage>
               alignment: Alignment.center,
               width: double.infinity,
               child: TabBar(
-                controller: _tabController01,
+                controller: _tabHeadController,
                 isScrollable: false,
-                dividerColor: Colors.white,
-                tabs: [
-                  Tab(text: '付款日'),
-                  Tab(text: '订单'),
-                ],
+                labelStyle: TextStyle(fontSize: 18),
+                dividerColor: Colors.blue,
+                indicatorColor: Colors.white,
+                labelColor: Colors.white,
+                unselectedLabelColor: ColorsStyle.c_E5E5E5,
+                tabs: headTabs.map((e) => Tab(text: e)).toList(),
                 tabAlignment: TabAlignment.center,
               ),
             )),
         body: TabBarView(
-          controller: _tabController01,
+          controller: _tabHeadController,
           children: [
-            _tabPayment(),
-            _tabOrder(),
+            _tabPaymentView(),
+            _tabOrderView(),
           ],
         ),
       ),
     );
   }
 
-  Widget _tabPayment() {
+  /// desc: 已付款
+  Widget _tabPaymentView() {
     return Column(children: [
       Container(
         margin: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 12),
@@ -125,7 +130,7 @@ class _PaymentPageState extends State<PaymentPage>
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("今日付款品数(个)",
+                        Text("今日付款商品数(个)",
                             style: TextStyle(
                                 color: ColorsStyle.c_999999, fontSize: 16.0)),
                         SizedBox(height: 6.0),
@@ -143,7 +148,7 @@ class _PaymentPageState extends State<PaymentPage>
       ),
       RichText(
           text: new TextSpan(
-              text: "订单日期：",
+              text: "付款日期：",
               style: TextStyle(color: ColorsStyle.c_999999),
               children: [
             TextSpan(
@@ -167,24 +172,24 @@ class _PaymentPageState extends State<PaymentPage>
           child: Column(
         children: [
           Container(
-            width: double.infinity,
-            height: 48, // 可以根据需要调整高度
-            child: TabBar(
-              isScrollable: false,
-              tabAlignment: TabAlignment.fill,
-              dividerColor: Colors.white,
-              controller: _tabController02,
-              tabs: [Tab(text: "客户"), Tab(text: "点位")],
-            ),
-          ),
+              width: double.infinity,
+              height: 48, // 可以根据需要调整高度
+              child: TabBar(
+                isScrollable: false,
+                tabAlignment: TabAlignment.fill,
+                dividerColor: Colors.white,
+                labelStyle: TextStyle(fontSize: 16),
+                indicatorColor: Colors.blue,
+                labelColor: Colors.blue,
+                unselectedLabelColor: ColorsStyle.c_666666,
+                controller: _tabBodyController,
+                tabs: bodyTabs.map((e) => Tab(text: e)).toList(),
+              )),
           Expanded(
             // 使TabBarView占据剩余空间
             child: TabBarView(
-              controller: _tabController02,
-              children: [
-                _tab001(), // 第三个标签页的内容
-                _tab002() // 第三个标签页的内容
-              ],
+              controller: _tabBodyController,
+              children: [_tabCustomView(), _tabPointView()],
             ),
           )
         ],
@@ -192,125 +197,8 @@ class _PaymentPageState extends State<PaymentPage>
     ]);
   }
 
-  Widget _tab001() {
-    return ListView.builder(
-      itemCount: list01.length,
-      itemBuilder: (BuildContext context, int index) {
-        return _listItem01(list01[index]);
-      },
-    );
-  }
-
-  Widget _listItem01(MachineBean data) {
-    return GestureDetector(
-      child: Container(
-        margin: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 2.0),
-        decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(5))),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                    margin: EdgeInsets.only(
-                        left: 10.0, bottom: 12.0, top: 10.0, right: 18.0),
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "客户编号:${data.machineId}",
-                            style: TextStyle(
-                                color: ColorsStyle.c_3A3A3A, fontSize: 13.0),
-                          ),
-                          Text("客户名称:${data.machineAddress}",
-                              style: TextStyle(
-                                  color: ColorsStyle.c_3A3A3A, fontSize: 13.0))
-                        ])),
-                Container(
-                  margin: EdgeInsets.only(bottom: 10.0, top: 2.0, right: 4.0),
-                  child: Text(
-                    "￥53.92",
-                    style: TextStyle(fontSize: 16),
-                  ),
-                )
-              ],
-            )
-          ],
-        ),
-      ),
-      onTap: () {},
-    );
-  }
-
-  Widget _listItem02(MachineBean data) {
-    return GestureDetector(
-      child: Container(
-        margin: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 2.0),
-        decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(5))),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                    margin: EdgeInsets.only(
-                        left: 10.0, bottom: 12.0, top: 10.0, right: 18.0),
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "机器编号:${data.machineId}",
-                            style: TextStyle(
-                                color: ColorsStyle.c_3A3A3A, fontSize: 13.0),
-                          ),
-                          Text("点位名称:${data.machineAddress}",
-                              style: TextStyle(
-                                  color: ColorsStyle.c_3A3A3A, fontSize: 13.0))
-                        ])),
-                Container(
-                  child: Row(
-                    children: [
-                      Text(
-                        "￥53.92",
-                        style: TextStyle(
-                            color: ColorsStyle.c_3A3A3A, fontSize: 16),
-                      ),
-                      Image(
-                        image: AssetImage("assets/images/arrow_right.png"),
-                        width: 14,
-                        height: 14,
-                      )
-                    ],
-                  ),
-                )
-              ],
-            )
-          ],
-        ),
-      ),
-      onTap: () {
-        setState(() {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => PointDetailsPage()));
-        });
-      },
-    );
-  }
-
-  Widget _tab002() {
-    return ListView.builder(
-      itemCount: list02.length,
-      itemBuilder: (BuildContext context, int index) {
-        return _listItem02(list02[index]);
-      },
-    );
-  }
-
-  Widget _tabOrder() {
+  /// desc: 订单
+  Widget _tabOrderView() {
     return Column(children: [
       Text("NZB125816(JM互联网与产品研发中心2.0)"),
       Container(
@@ -345,7 +233,7 @@ class _PaymentPageState extends State<PaymentPage>
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("今日订单品数(个)",
+                        Text("今日订单商品数(个)",
                             style: TextStyle(
                                 color: ColorsStyle.c_999999, fontSize: 16.0)),
                         SizedBox(height: 6.0),
@@ -357,7 +245,7 @@ class _PaymentPageState extends State<PaymentPage>
               ],
             ),
             SizedBox(height: 15),
-            Text("其中，包含历史订单在今日付款：金额2.00，商品1个", style: TextStyle(fontSize: 12)),
+            Text("其中，已付款：金额2.00，商品1个", style: TextStyle(fontSize: 12)),
           ],
         ),
       ),
@@ -387,24 +275,24 @@ class _PaymentPageState extends State<PaymentPage>
           child: Column(
         children: [
           Container(
-            width: double.infinity,
-            height: 48, // 可以根据需要调整高度
-            child: TabBar(
-              isScrollable: false,
-              tabAlignment: TabAlignment.fill,
-              dividerColor: Colors.white,
-              controller: _tabController02,
-              tabs: [Tab(text: "客户"), Tab(text: "点位")],
-            ),
-          ),
+              width: double.infinity,
+              height: 48, // 可以根据需要调整高度
+              child: TabBar(
+                isScrollable: false,
+                tabAlignment: TabAlignment.fill,
+                dividerColor: Colors.white,
+                labelStyle: TextStyle(fontSize: 16),
+                indicatorColor: Colors.blue,
+                labelColor: Colors.blue,
+                unselectedLabelColor: ColorsStyle.c_666666,
+                controller: _tabBodyController,
+                tabs: bodyTabs.map((e) => Tab(text: e)).toList(),
+              )),
           Expanded(
             // 使TabBarView占据剩余空间
             child: TabBarView(
-              controller: _tabController02,
-              children: [
-                _tab001(), // 第三个标签页的内容
-                _tab002() // 第三个标签页的内容
-              ],
+              controller: _tabBodyController,
+              children: [_tabCustomView(), _tabPointView()],
             ),
           )
         ],
@@ -412,16 +300,139 @@ class _PaymentPageState extends State<PaymentPage>
     ]);
   }
 
+  /// desc: 客户
+  Widget _tabCustomView() {
+    return ListView.builder(
+      itemCount: list01.length,
+      itemBuilder: (BuildContext context, int index) {
+        return _customListItem(list01[index]);
+      },
+    );
+  }
+
+  /// desc: 客户item
+  Widget _customListItem(TestBean data) {
+    return GestureDetector(
+      child: Container(
+        margin: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 2.0),
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.all(Radius.circular(5))),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                    margin: EdgeInsets.only(
+                        left: 10.0, bottom: 12.0, top: 10.0, right: 18.0),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "客户编号:${data.nameStr}",
+                            style: TextStyle(
+                                color: ColorsStyle.c_3A3A3A, fontSize: 13.0),
+                          ),
+                          Text("客户名称:${data.addressStr}",
+                              style: TextStyle(
+                                  color: ColorsStyle.c_3A3A3A, fontSize: 13.0))
+                        ])),
+                Container(
+                  margin: EdgeInsets.only(bottom: 10.0, top: 2.0, right: 4.0),
+                  child: Text(
+                    "￥53.92",
+                    style: TextStyle(fontSize: 16),
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
+      ),
+      onTap: () {},
+    );
+  }
+
+  /// desc: 点位
+  Widget _tabPointView() {
+    return ListView.builder(
+      itemCount: list02.length,
+      itemBuilder: (BuildContext context, int index) {
+        return _pointListItem(list02[index]);
+      },
+    );
+  }
+
+  /// desc: 点位item
+  Widget _pointListItem(TestBean data) {
+    return GestureDetector(
+      child: Container(
+        margin: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 2.0),
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.all(Radius.circular(5))),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                    margin: EdgeInsets.only(
+                        left: 10.0, bottom: 12.0, top: 10.0, right: 18.0),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "机器编号:${data.nameStr}",
+                            style: TextStyle(
+                                color: ColorsStyle.c_3A3A3A, fontSize: 13.0),
+                          ),
+                          Text("点位名称:${data.addressStr}",
+                              style: TextStyle(
+                                  color: ColorsStyle.c_3A3A3A, fontSize: 13.0))
+                        ])),
+                Container(
+                  child: Row(
+                    children: [
+                      Text(
+                        "￥53.92",
+                        style: TextStyle(
+                            color: ColorsStyle.c_3A3A3A, fontSize: 16),
+                      ),
+                      Image(
+                        image: AssetImage("assets/images/arrow_right.png"),
+                        width: 14,
+                        height: 14,
+                      )
+                    ],
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
+      ),
+      onTap: () {
+        setState(() {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => PointDetailsPage()));
+        });
+      },
+    );
+  }
+
   @override
   void dispose() {
-    _tabController02.dispose();
+    _tabHeadController.dispose();
+    _tabBodyController.dispose();
     super.dispose();
   }
 }
 
-class MachineBean {
-  late String machineId;
-  late String machineAddress;
+class TestBean {
+  late String nameStr;
+  late String addressStr;
 
-  MachineBean(this.machineId, this.machineAddress);
+  TestBean(this.nameStr, this.addressStr);
 }
