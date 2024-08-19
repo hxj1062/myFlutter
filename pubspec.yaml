@@ -41,6 +41,7 @@ dependencies:
   multi_image_picker: ^4.8.01
   photo_view: ^0.14.0
   intl: ^0.19.0
+  marquee: ^2.2.3
 
 dev_dependencies:
   flutter_test:

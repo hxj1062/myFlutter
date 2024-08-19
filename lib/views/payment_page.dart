@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:marquee/marquee.dart';
 import 'package:myfluter/style/color_style.dart';
 import 'package:myfluter/utils/common_utils.dart';
 import 'package:myfluter/views/point_details.dart';
@@ -49,6 +50,7 @@ class _PaymentPageState extends State<PaymentPage>
         appBar: AppBar(
             automaticallyImplyLeading: false,
             title: Container(
+              color: Colors.blue,
               alignment: Alignment.center,
               width: double.infinity,
               child: TabBar(
