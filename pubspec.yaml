@@ -33,12 +33,12 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
+  # 插件(multi_image_picker: ^4.8.01)导致工程build失败,里面间接引用的(com.sangcomz:FishBun:0.11.2)库没有了,将此插件注释,工程就正常运行安装了
   cupertino_icons: ^1.0.2
   fluttertoast: ^8.1.2
   convex_bottom_bar: ^3.2.0
   image_picker: ^0.7.2+1
   flutter_datetime_picker: ^1.5.1
-  multi_image_picker: ^4.8.01
   photo_view: ^0.14.0
   intl: ^0.19.0
   marquee: ^2.2.3

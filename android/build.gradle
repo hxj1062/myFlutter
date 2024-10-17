@@ -2,6 +2,7 @@ buildscript {
     ext.kotlin_version = '1.6.10'
     repositories {
         google()
+        jcenter()
         mavenCentral()
     }
 
@@ -15,7 +16,26 @@ buildscript {
 allprojects {
     repositories {
         google()
+        jcenter()
         mavenCentral()
+        maven {
+            allowInsecureProtocol = true
+            url "https://jitpack.io"
+        }
+        maven {
+            allowInsecureProtocol = true
+//            url 'https://maven.google.com'  // 有外网
+            url 'https://maven.aliyun.com/repository/google'  // 无外网
+        }
+        maven {
+            allowInsecureProtocol = true
+//            url 'https://maven.google.com'  // 有外网
+            url 'https://mvnrepository.com/artifact'  // 无外网
+        }
+        maven {
+            allowInsecureProtocol = true
+            url 'https://maven.aliyun.com/repository/public'
+        }
     }
 }
 
