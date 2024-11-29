@@ -20,7 +20,7 @@ import 'change_machine_type_page.dart';
 import 'check_order.dart';
 import 'check_product_page.dart';
 import 'choice_page.dart';
-import 'demo_01.dart';
+import 'switch_demo.dart';
 import 'logistics_details.dart';
 import 'not_recorded_page.dart';
 
@@ -52,7 +52,7 @@ class _Tab01PageState extends State<Tab01Page> {
     Functions("查看验收单", "验收单", CheckOrderApp()),
     Functions("物流单", "物流单", LogisDetailPage()),
     Functions("点位详情", "点位详情", PointDetailsPage()),
-    Functions("demo", "demo", MyApp()),
+    Functions("单选开关", "开关用例", SwitchEg()),
     // Functions("付款日", "付款日", PaymentPage()),
   ];
 

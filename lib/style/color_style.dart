@@ -11,6 +11,7 @@ class ColorsStyle {
   static const Color c_FF7500 = Color(0xFFFF7500);
   static const Color c_FF6C00 = Color(0xFFFF6C00);
   static const Color c_FF5F27 = Color(0xFFFF5F27);
+  static const Color c_FF6600 = Color(0xFFFF6600);
   static const Color c_999999 = Color(0xFF999999);
   static const Color c_F4F6F8 = Color(0xFFF4F6F8);
   static const Color c_FFFFFF = Color(0xFFFFFFFF);
@@ -24,6 +25,7 @@ class ColorsStyle {
   static const Color c_FFF7EE = Color(0XFFFFF7EE);
   static const Color c_DEDEDE = Color(0XFFDEDEDE);
   static const Color c_E5E5E5 = Color(0xFFE5E5E5);
+  static const Color c_E4E5E6 = Color(0xFFE4E5E6);
   static const Color c_FFBFC2CB = Color(0xFFBFC2CB);
 
   static MaterialColor materialColor(Color color) {
