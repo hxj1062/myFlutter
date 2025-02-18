@@ -20,6 +20,7 @@ import 'change_machine_type_page.dart';
 import 'check_order.dart';
 import 'check_product_page.dart';
 import 'choice_page.dart';
+import 'event_action.dart';
 import 'switch_demo.dart';
 import 'logistics_details.dart';
 import 'not_recorded_page.dart';
@@ -53,6 +54,7 @@ class _Tab01PageState extends State<Tab01Page> {
     Functions("物流单", "物流单", LogisDetailPage()),
     Functions("点位详情", "点位详情", PointDetailsPage()),
     Functions("单选开关", "开关用例", SwitchEg()),
+    Functions("单选事件", "开关用例", EventAction()),
     // Functions("付款日", "付款日", PaymentPage()),
   ];
 
@@ -122,9 +124,7 @@ class _Tab01PageState extends State<Tab01Page> {
         ),
         actions: [
           TextButton(
-              style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all(const Color(0xff1E90FF))),
+              style: ButtonStyle(backgroundColor: MaterialStateProperty.all(const Color(0xff1E90FF))),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -133,13 +133,10 @@ class _Tab01PageState extends State<Tab01Page> {
                 style: TextStyle(color: Colors.white, fontSize: 16.0),
               )),
           TextButton(
-              style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all(const Color(0xff1E90FF))),
+              style: ButtonStyle(backgroundColor: MaterialStateProperty.all(const Color(0xff1E90FF))),
               onPressed: () {
                 Navigator.of(context).pop();
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => func.widgetPage));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => func.widgetPage));
               },
               child: const Text(
                 "查看",
